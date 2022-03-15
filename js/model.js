@@ -51,7 +51,7 @@ export const searchByTitle = async function (bookName) {
           return el !== undefined;
         });
 
-      // Added index to each item afterwards, otherwise it loses its index in undefined objects.
+      // Added index to each item afterwards, otherwise it loses track of its index in undefined objects.
       bookArray.forEach((num, indexResult) => {
         return (num.index = indexResult);
       });
@@ -69,8 +69,8 @@ export const searchByTitle = async function (bookName) {
 export const getSearchResultsPage = function (page = state.search.page) {
   state.search.page = page;
 
-  const start = (page - 1) * state.search.resultsPerPage; // (1-1) * 3 = 0;
-  const end = page * state.search.resultsPerPage; // 1 * 3 = 3;
+  const start = (page - 1) * state.search.resultsPerPage; // (1-1) * resultsPerPage = 0;
+  const end = page * state.search.resultsPerPage; // 1 * resultsPerPage = resultsPerPage;
 
   return state.search.results.slice(start, end); // Slice method to get array of 3 elements
 };

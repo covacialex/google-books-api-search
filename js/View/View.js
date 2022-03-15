@@ -5,9 +5,16 @@ export default class View {
     if (!data || (Array.isArray(data) && data.length === 0))
       return this.renderError();
 
+    // Set private _data to data from function argument
     this._data = data;
+
+    // Generate markup
     const markup = this._generateMarkup();
+
+    // Clear parent element
     this._clear();
+
+    // Insert markup as first child to parent element
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 

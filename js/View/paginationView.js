@@ -57,7 +57,7 @@ class PaginationView extends View {
     }
 
     // Page 1, and no other pages
-    return "'asd";
+    return "";
   }
 }
 
