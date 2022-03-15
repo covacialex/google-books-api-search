@@ -1,0 +1,318 @@
+.container {
+  background-color: #fff;
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 7rem;
+}
+
+.search-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+}
+
+.search-nav__bar {
+  color: #fff;
+  background-color: #000;
+  border: 1px solid #fff;
+  border-radius: 2rem;
+  width: 30rem;
+  height: 3rem;
+}
+
+.search-nav__button {
+  width: 25px;
+  height: 25px;
+  position: relative;
+}
+
+.search-nav__button-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.user-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 1.6rem;
+  gap: 10px;
+}
+
+.user-nav__avatar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 25px;
+}
+
+.user-nav__cart {
+  color: #fff;
+  font-size: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user-nav__cart-icon {
+  background-color: #000;
+}
+
+.sidebar {
+  background-color: #999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 15%;
+          flex: 0 0 15%;
+  min-height: 90rem;
+}
+
+.side-nav {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  font-size: 20px;
+  padding: 2rem;
+}
+
+.side-nav hr {
+  display: hidden;
+  position: relative;
+}
+
+.side-nav__item {
+  color: #000;
+}
+
+.side-nav__item-icon {
+  margin-left: 1rem;
+  -webkit-transform: translateY(0.5rem);
+          transform: translateY(0.5rem);
+}
+
+.side-footer {
+  font-size: 1.2rem;
+  padding: 3rem;
+  text-align: center;
+}
+
+.content {
+  width: 100%;
+}
+
+.quotes-section {
+  background-color: #999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  gap: 1rem;
+  padding: 1rem 15rem;
+}
+
+.quotes-section__day {
+  font-size: 2rem;
+}
+
+.quotes-section__quote {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.quotes-section__new {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.6rem;
+  font-size: 1.4rem;
+}
+
+.quotes-section__new-icon {
+  -webkit-transform: translateY(0.3rem);
+          transform: translateY(0.3rem);
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.books-section {
+  background-color: #fff;
+  margin-top: 10px;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+  grid-row-gap: 5rem;
+  padding: 5rem;
+  justify-items: center;
+  min-height: 82%;
+}
+
+.books-section__book-1 {
+  -webkit-box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 0.8rem;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+.books-section__cover {
+  width: 15rem;
+}
+
+.books-section__author {
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.books-section__cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.books-section__cart-price {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.books-section__cart-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.books-section__cart-icon {
+  font-size: 2rem;
+  -webkit-transform: translateY(0.2rem);
+          transform: translateY(0.2rem);
+}
+
+.books-section__cart-icon:hover {
+  color: #fff;
+}
+
+.footer {
+  height: 7rem;
+  background-color: orangered;
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  min-height: 100vh;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=main.css.map */

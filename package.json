@@ -1,0 +1,14 @@
+{
+  "name": "books-test",
+  "version": "1.0.0",
+  "description": "Book project",
+  "main": "script.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "author": "Covaci Alex",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^7.0.1"
+  }
+}

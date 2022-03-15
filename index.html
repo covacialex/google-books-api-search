@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+       
+        <form class="search__nav" id="search">
+          <div class="search__nav__button">
+            <ion-icon
+            name="search-sharp"
+            class="search__nav__button__icon"
+            ></ion-icon>
+          </div>
+          <input
+            type="text"
+            class="search__nav__bar"
+            placeholder="Search books..."
+          />
+          
+        </form>
+
+        <div class="user-nav">
+          <div class="user-nav__avatar">
+            <ion-icon
+              class="user-nav__avatar-img"
+              name="person-sharp"
+            ></ion-icon>
+          </div>
+          <div class="user-nav__cart">
+            <ion-icon class="user-nav__cart-icon" name="cart-sharp"></ion-icon>
+            <!-- <div class="user-nav__cart__box">
+              <div class="user-nav__cart__box__contents">
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </header>
+
+      <div class="main">
+        <!-- <div class="sidebar">
+          <ul class="side-nav">
+            <li class="side-nav__item">About Us</li>
+            <li class="side-nav__item">Blog</li>
+            <li class="side-nav__item">Stores</li>
+            <hr />
+            <li class="side-nav__item">Best Sellers</li>
+            <li class="side-nav__item">Award Winners</li>
+            <li class="side-nav__item">
+              Browse<ion-icon
+                class="side-nav__item-icon"
+                name="caret-down-sharp"
+              ></ion-icon>
+            </li>
+          </ul>
+          <div class="side-footer">
+            &copy; by <span>Covaci Alex</span>. <br />
+            All rights reserved.
+          </div>
+        </div> -->
+        <div class="content">
+          <!-- <div class="quotes-section">
+            <h1 class="quotes-section__day">Quote of the day</h1>
+            <h3 class="quotes-section__quote"></h3>
+            <div class="quotes-section__new">
+              <ion-icon
+                class="quotes-section__new-icon uotes-section__new-icon-left"
+                name="chevron-back-sharp"
+              ></ion-icon>
+              <span class="quotes-section__new-text">Or try a new one</span>
+              <ion-icon
+                class="quotes-section__new-icon uotes-section__new-icon-right"
+                name="chevron-forward-sharp"
+              ></ion-icon>
+            </div>
+          </div> -->
+          <div class="books-section">
+            <div class="books-section__results">
+              
+              <ul class="books-section__results__list">
+
+               
+
+                <p class="project__intro">
+                Search for a book using the search bar and click on each result for a small description. <br> <br>
+                A small project I've made as my final presentation for a programming course using Google Books' API. <br> Google's search algorithm is a bit weird when it comes to books even when sorting by relevance, so the results might be a bit out of place.  </p>
+                <!-- <div class="loading ">
+                <ion-icon name="reload-outline" class="loading__spinner"></ion-icon> 
+                <p class="loading__text">Fetching results</p>
+              </div> -->
+                  <!-- <li class="books-section__results__book"></li> -->
+               </ul>
+
+               <div class="pagination"> <!--
+                <button class="pagination__left">
+                  <span class="pagination__left__arrow"><</span>
+                  <span class="pagination__left__page">Page 1</span>
+                </button>
+                <button class="pagination__right">
+                  <span class="pagination__left__page">Page 2</span>
+                  <span class="pagination__left__arrow">></span>
+                </button> -->
+              </div>
+
+           </div>
+            <div class="books-section__focused">
+                
+            </div> 
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script defer type="module" src="js/controller.js"></script>
+  </body>
+</html>
