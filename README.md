@@ -1,10 +1,10 @@
 # Google Books API project
 
-A small project I did as my final presentation for a programming course using the Model-View-Controller architecture. 
+A small project I did as my final presentation for a programming course using the Model-View-Controller architecture in vanilla JavaScript.
 
 ### Features
 
-- Request an array using the search bar value from Google Books API. 
+- Request an array using the search bar value from Google Books API.
 - Render the results on the site by pages (you can choose how many from the code).
 - Click on a book to render some description about its contents.
 
