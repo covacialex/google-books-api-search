@@ -40,13 +40,11 @@ const controlFocusedBook = async function (bookIndex) {
   focusedView.render(model.state.search.results[bookIndex]);
 };
 
-const controlDescriptionHeight = async function (handler) {};
-
 const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   focusedView.addHandlerRender(controlFocusedBook);
-  truncateView.addTruncButton(controlDescriptionHeight);
+  truncateView.addTruncButton();
 };
 
 init();
