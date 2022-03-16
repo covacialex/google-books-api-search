@@ -168,18 +168,27 @@
         }
 
         &-description {
-          // overflow: hidden;
           font-size: 1.5rem;
           color: var(--color-text-dark);
           font-weight: var(--weight-normal);
           line-height: 2.2rem;
-          // height: 15rem;
-          // display: inline-block;
+          // height: 15.2rem;
 
-          // &:hover {
-          //   overflow: visible;
-          //   min-height: auto;
-          // }
+          // Hide text that's longer than 5 lines
+          &-button {
+            // display: flex;
+            // justify-content: flex-end;
+            // align-self: flex-end;
+
+            // background-color: var(--color-primary);
+            // color: var(--color-text-black);
+            // font-family: var(--family-default);
+            // font-size: 1.4rem;
+
+            // box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.2);
+            // border: 0;
+            // padding: 1rem 2rem;
+          }
         }
 
         &-price {
@@ -228,13 +237,12 @@
 }
 
 .pagination {
-  // background-color: #000;
-  height: 5rem;
-  width: 5rem;
+  // height: 5rem;
+  // width: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 1.8rem auto;
   gap: 3rem;
 
   &__left {
@@ -248,4 +256,26 @@
 
     white-space: nowrap;
   }
+}
+
+.line--clamp-4 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+.btn {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+
+  background-color: var(--color-fourth);
+  color: #fff;
+  font-family: var(--family-default);
+  font-size: 1.4rem;
+
+  box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.2);
+  border: 0;
+  padding: 0.5rem 1rem;
 }

@@ -5,6 +5,7 @@ import focusedView from "./View/focusedView.js";
 import paginationView from "./View/paginationView.js";
 import resultsView from "./View/resultsView.js";
 import searchView from "./View/searchView.js";
+import truncateView from "./View/truncateView.js";
 
 const controlSearchResults = async function () {
   try {
@@ -39,10 +40,13 @@ const controlFocusedBook = async function (bookIndex) {
   focusedView.render(model.state.search.results[bookIndex]);
 };
 
+const controlDescriptionHeight = async function (handler) {};
+
 const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   focusedView.addHandlerRender(controlFocusedBook);
+  truncateView.addTruncButton(controlDescriptionHeight);
 };
 
 init();

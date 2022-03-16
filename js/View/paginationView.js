@@ -26,7 +26,7 @@ class PaginationView extends View {
       return `
          <button data-goto="${currPage + 1}" class="btn pagination__right">
              <span class="pagination__left__page">Page ${currPage + 1}</span>
-             <span class="pagination__left__arrow">></span>
+             <ion-icon name="chevron-forward-outline" class="pagination__left__arrow"></ion-icon>
          </button>
       `;
     }
@@ -35,7 +35,7 @@ class PaginationView extends View {
     if (currPage === numPages && numPages > 1) {
       return `
     <button data-goto="${currPage - 1}" class="btn pagination__left">
-        <span class="pagination__left__arrow"><</span>
+        <ion-icon name="chevron-back-outline" class="pagination__left__arrow"></ion-icon>
         <span class="pagination__left__page">Page ${currPage - 1}</span>
     </button>
       `;
@@ -45,13 +45,13 @@ class PaginationView extends View {
     if (currPage < numPages) {
       return `
       <button data-goto="${currPage - 1}" class="btn pagination__left">
-      <span class="pagination__left__arrow"><</span>
+      <ion-icon name="chevron-back-outline" class="pagination__left__arrow"></ion-icon>
       <span class="pagination__left__page">Page ${currPage - 1}</span>
      </button>
 
      <button data-goto="${currPage + 1}" class="btn pagination__right">
      <span class="pagination__left__page">Page ${currPage + 1}</span>
-     <span class="pagination__left__arrow">></span>
+     <ion-icon name="chevron-forward-outline" class="pagination__left__arrow"></ion-icon>
     </button>
       `;
     }

@@ -74,3 +74,7 @@ export const getSearchResultsPage = function (page = state.search.page) {
 
   return state.search.results.slice(start, end); // Slice method to get array of 3 elements
 };
+
+export const descrHeight = function () {
+  console.log("Height");
+};

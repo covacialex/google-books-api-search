@@ -271,17 +271,33 @@
   font-size: 1.4rem; }
 
 .pagination {
-  height: 5rem;
-  width: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 1.8rem auto;
   gap: 3rem; }
   .pagination__left {
     white-space: nowrap; }
   .pagination__right {
     white-space: nowrap; }
+
+.line--clamp-4 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5; }
+
+.btn {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+  background-color: var(--color-fourth);
+  color: #fff;
+  font-family: var(--family-default);
+  font-size: 1.4rem;
+  box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.2);
+  border: 0;
+  padding: 0.5rem 1rem; }
 
 .footer {
   height: 7rem;
@@ -293,6 +309,7 @@
   --color-primary: #ecf6ff;
   --color-secondary: #fff;
   --color-tertiary: #181919;
+  --color-fourth: #767b80;
   --color-text: #c4c4cc;
   --color-text-dark: #727279;
   --color-text-black: #181919;

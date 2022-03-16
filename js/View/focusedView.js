@@ -18,6 +18,31 @@ class FocusedView extends View {
     });
   }
 
+  addTruncButton(handler) {
+    const bookList = document.querySelector(".books-section__results__list");
+
+    bookList.addEventListener("click", function () {
+      const description = document.querySelector(
+        ".books-section__focused__container__content-description"
+      );
+
+      if (
+        description.offsetHeight < description.scrollHeight ||
+        description.offsetWidth < description.scrollWidth
+      ) {
+        description.style.color = "blue";
+
+        description.style.overflow = "hidden";
+      } else {
+        description.style.color = "red";
+
+        description.style.overflow = "visible";
+      }
+
+      handler();
+    });
+  }
+
   _generateMarkup() {
     return `
     <div class="books-section__focused__container">
@@ -35,9 +60,10 @@ class FocusedView extends View {
         by <span>${this._data.author}</span>
       </div>
 
-      <p class="books-section__focused__container__content-description">
+      <p class="books-section__focused__container__content-description line--clamp-4">
         ${this._data.description}
       </p>
+      <button class="btn books-section__focused__container__content-description-button"></button>
       <span class="books-section__focused__container__content-category"
         ></span
       >
