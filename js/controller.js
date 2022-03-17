@@ -1,6 +1,7 @@
 "use strict";
 
 import * as model from "./model.js";
+import cartView from "./View/cartView.js";
 import focusedView from "./View/focusedView.js";
 import paginationView from "./View/paginationView.js";
 import resultsView from "./View/resultsView.js";
@@ -40,11 +41,17 @@ const controlFocusedBook = async function (bookIndex) {
   focusedView.render(model.state.search.results[bookIndex]);
 };
 
+const controlCart = function (index) {
+  cartView.render(model.state.search.results[index]);
+};
+
 const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   focusedView.addHandlerRender(controlFocusedBook);
   truncateView.addTruncButton();
+  cartView.addHandlerRender(controlCart);
+  cartView.addBoxTruncation();
 };
 
 init();

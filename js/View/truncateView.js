@@ -2,21 +2,11 @@ import View from "./View.js";
 
 class TruncateView extends View {
   _parentElement = document.querySelector(".books-section__focused");
-  _errorMessage = "Something went wrong with Trunc. Please try again!";
+  _errorMessage = "Something went wrong with Trunc.";
   _message = "";
 
-  addTruncButton(handler) {
+  addTruncButton() {
     const bookList = document.querySelector(".books-section__results__list");
-
-    function toggleText(btn) {
-      if (btn.innerHTML == "Show More") {
-        btn.innerHTML = "Show Less";
-      } else if (btn.innerHTML == "Show Less") {
-        btn.innerHTML = "Show More";
-      } else {
-        null;
-      }
-    }
 
     bookList.addEventListener("click", function () {
       const description = document.querySelector(
@@ -26,19 +16,30 @@ class TruncateView extends View {
         ".books-section__focused__container__content-description-button"
       );
 
-      //   'offset' is the element height set in css properties, 'scroll' is the size of the potential scrollable element with overflow visible
+      //   'offset' is the element height set in css properties, 'scroll' is the maximum height it could muster based on content
       if (description.offsetHeight < description.scrollHeight) {
+        // Render button
         btn.innerHTML = "Show More";
+        btn.classList.add("btn");
 
+        // Add button functionality
         btn.addEventListener("click", function () {
-          description.classList.toggle("line--clamp-4");
+          description.classList.toggle("line--clamp-5");
 
           toggleText(btn);
         });
       }
-
-      handler();
     });
+
+    function toggleText(btn) {
+      if (btn.innerHTML == "Show More") {
+        btn.innerHTML = "Show Less";
+      } else if (btn.innerHTML == "Show Less") {
+        btn.innerHTML = "Show More";
+      } else {
+        btn.innerHTML = "";
+      }
+    }
   }
 }
 

@@ -43,6 +43,7 @@
       justify-content: flex-start;
       text-align: center;
       width: 100%;
+      min-height: 36.5rem;
 
       box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.1);
       background-color: var(--color-secondary);
@@ -97,20 +98,16 @@
         }
 
         &__title {
-          // position: absolute;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          height: 5rem;
           font-size: 1.6rem;
           font-weight: var(--weight-bold);
           max-width: 15rem;
-          height: 4.4rem;
+          // height: 4.4rem;
           margin-top: 2.4rem;
-          // margin-bottom: 1.8rem;
-          overflow: hidden;
-          transition: max-height 0.3s;
+
+          // position: absolute;
 
           &:hover {
+            overflow: visible;
           }
         }
       }
@@ -142,7 +139,7 @@
         display: flex;
         flex-direction: column;
         gap: 1.4rem;
-        background-color: var(--color-secondary);
+        background-color: var(--color-primary);
         padding: 2rem;
         flex-grow: 1;
 
@@ -172,22 +169,10 @@
           color: var(--color-text-dark);
           font-weight: var(--weight-normal);
           line-height: 2.2rem;
-          // height: 15.2rem;
 
-          // Hide text that's longer than 5 lines
+          // Hide text that's longer than 5 lines (needed for truncateView.js)
           &-button {
-            // display: flex;
-            // justify-content: flex-end;
-            // align-self: flex-end;
-
-            // background-color: var(--color-primary);
-            // color: var(--color-text-black);
-            // font-family: var(--family-default);
-            // font-size: 1.4rem;
-
-            // box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.2);
-            // border: 0;
-            // padding: 1rem 2rem;
+            display: none;
           }
         }
 
@@ -206,9 +191,7 @@
 
 .loading {
   display: flex;
-  // justify-content: center;
   align-items: center;
-  // margin: 0 auto;
 
   gap: 2rem;
   height: 36.5rem;
@@ -234,35 +217,53 @@
 .project__intro {
   text-align: center;
   font-size: 1.4rem;
+
+  a:link,
+  a:visited {
+    text-decoration: none;
+    color: var(--color-text-green-dark);
+    font-weight: var(--weight-bold);
+  }
 }
 
 .pagination {
-  // height: 5rem;
-  // width: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+
   margin: 1.8rem auto;
   gap: 3rem;
 
   &__left {
-    // background-color: blue;
-
     white-space: nowrap;
+
+    &__arrow {
+      font-size: 1.8rem;
+    }
   }
 
   &__right {
-    // background-color: red;
-
     white-space: nowrap;
+
+    &__arrow {
+      font-size: 1.8rem;
+    }
   }
 }
 
-.line--clamp-4 {
+// Line clamps to hide overflown text and toggle it from truncateView.js
+.line--clamp-5 {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
+}
+
+.line--clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .btn {
@@ -270,12 +271,14 @@
   justify-content: flex-end;
   align-self: flex-end;
 
-  background-color: var(--color-fourth);
+  background-color: var(--color-primary);
   color: #fff;
   font-family: var(--family-default);
   font-size: 1.4rem;
+  color: var(--color-text-black);
 
-  box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.2);
-  border: 0;
+  box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--color-fourth);
   padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
 }

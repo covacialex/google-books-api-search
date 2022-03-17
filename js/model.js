@@ -20,7 +20,7 @@ export const searchByTitle = async function (bookName) {
     const data = await getJSON(
       `${API_BOOK_URL}+intitle:${bookName}&langRestrict=en&printType=books&maxResults=40`
     ).then((data) => {
-      console.log(data);
+      // console.log(data); // Enable to see raw data from API
 
       const bookArray = data.items
         .map((num, index) => {
@@ -75,6 +75,6 @@ export const getSearchResultsPage = function (page = state.search.page) {
   return state.search.results.slice(start, end); // Slice method to get array of 3 elements
 };
 
-export const descrHeight = function () {
-  console.log("Height");
+export const focusedBookData = function (bookID) {
+  model.state.search.results.find(({ id }) => id === bookID);
 };

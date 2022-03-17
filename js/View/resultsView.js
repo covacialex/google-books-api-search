@@ -20,7 +20,7 @@ class ResultsView extends View {
         />
       </div>
       <div class="books-section__results__book__content">
-        <h3 class="books-section__results__book__content__title">${book.title}</h3>
+        <h3 class="books-section__results__book__content__title line--clamp-2">${book.title}</h3>
         <h3 class="books-section__results__book__content__author"><span>${book.author}</span></h3>
        
       </div>
