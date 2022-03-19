@@ -16,6 +16,9 @@ const controlSearchResults = async function () {
     const query = searchView.getQuery();
     if (!query) return;
 
+    // Clear focused book
+    focusedView.clearContainer();
+
     // Load search results
     await model.searchByTitle(query);
 
@@ -38,11 +41,30 @@ const controlPagination = function (goToPage) {
 };
 
 const controlFocusedBook = async function (bookIndex) {
+  // Render focused book based on index taken from html dataset
   focusedView.render(model.state.search.results[bookIndex]);
 };
 
-const controlCart = function (index) {
-  cartView.render(model.state.search.results[index]);
+const controlCart = function (data) {
+  // Add book data from cartView to model.state.book
+  model.state.book = data;
+
+  // Set copies to 1
+  model.state.book.copies = 1;
+
+  // Check if cart already contains book using destructuring
+  if (model.state.cart.find(({ id }) => id === data.id)) {
+    // Increment copies in cart
+    model.state.book.copies++;
+  } else {
+    // Render book info
+    cartView.render(model.state.book);
+  }
+
+  console.log(model.state);
+
+  // Push new cart data into array
+  model.state.cart.push(data);
 };
 
 const init = function () {
@@ -50,8 +72,10 @@ const init = function () {
   paginationView.addHandlerClick(controlPagination);
   focusedView.addHandlerRender(controlFocusedBook);
   truncateView.addTruncButton();
+
   cartView.addHandlerRender(controlCart);
   cartView.addBoxTruncation();
+  cartView.deleteProduct();
 };
 
 init();

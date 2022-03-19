@@ -1,5 +1,5 @@
 .container {
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
 
   max-width: 120rem;
   margin: 0 auto;
@@ -33,9 +33,9 @@
     width: 3.8rem;
 
     border: none;
-    border-top: 0.1rem solid var(--color-tertiary);
-    border-left: 0.1rem solid var(--color-tertiary);
-    border-bottom: 0.1rem solid var(--color-tertiary);
+    border-top: 0.1rem solid var(--color-fourth);
+    border-left: 0.1rem solid var(--color-fourth);
+    border-bottom: 0.1rem solid var(--color-fourth);
 
     position: absolute;
     top: 0rem;
@@ -51,14 +51,15 @@
     font-style: var(--family-default);
     font-weight: var(--weight-bold);
 
+    // Padding = place where text first appears
     padding-left: 6rem;
     width: 30rem;
     height: 3.8rem;
 
     border: none;
-    border-top: 0.1rem solid var(--color-tertiary);
-    border-right: 0.1rem solid var(--color-tertiary);
-    border-bottom: 0.1rem solid var(--color-tertiary);
+    border-top: 0.1rem solid var(--color-fourth);
+    border-right: 0.1rem solid var(--color-fourth);
+    border-bottom: 0.1rem solid var(--color-fourth);
 
     background-color: var(--color-secondary);
     color: var(--color-text-dark);
@@ -80,15 +81,6 @@
 
   margin-left: auto;
 
-  &__avatar {
-    display: flex;
-    align-items: center;
-    font-size: 25px;
-
-    &-img {
-    }
-  }
-
   &__cart {
     display: flex;
     align-items: center;
@@ -100,13 +92,14 @@
 
     &__box {
       padding: 2rem 1rem;
-      background-color: var(--color-primary);
-      color: var(--color-text-black);
+      background-color: var(--color-secondary);
+      color: var(--color-text-dark);
 
       width: 20rem;
       min-height: 30rem;
-      max-height: 50rem;
+      max-height: 30rem;
       overflow-x: hidden;
+      overflow-y: scroll;
       position: absolute;
       right: 0;
       top: 110%;
@@ -114,85 +107,55 @@
       border: 1px solid #000;
       z-index: 999;
 
-      display: flex;
+      display: none;
       flex-direction: column;
       gap: 1rem;
 
-      &-title {
-        font-size: 1.4rem;
-        font-weight: var(--weight-bold);
-        color: var(--color-text-black);
-
-        max-width: 10rem;
-        // overflow: hidden;
-        // white-space: nowrap;
-
+      &__container {
         display: flex;
-        justify-content: flex-start;
-
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
-      }
-
-      &-author {
-      }
-
-      &__contents {
-        display: flex;
-        flex-direction: column;
+        // flex-direction: column;
         gap: 1.2rem;
 
-        &__container {
-          font-size: 1.2rem;
+        &-cover {
+          width: 3rem;
+        }
 
+        &__contents {
           display: flex;
-          // justify-content: flex-start;
-          // align-items: flex-start;
-          gap: 2.4rem;
+          flex-direction: column;
 
-          &__product {
-            position: relative;
-            // padding: 3rem;
-            &-title {
-              font-size: 1.4rem;
-              font-weight: var(--weight-bold);
-              color: var(--color-text-black);
+          &-title {
+            font-size: 1.4rem;
+            font-weight: var(--weight-bold);
+            color: var(--color-text-dark);
 
-              max-width: 10rem;
-              overflow: hidden;
-              white-space: nowrap;
+            max-width: 10rem;
+            // overflow: hidden;
+            // white-space: nowrap;
 
-              // position: absolute;
-              // top: 0;
-              // left: 0;
+            display: flex;
+            justify-content: flex-start;
 
-              &:hover {
-                background-color: #fff;
-
-                max-width: 20rem;
-                overflow: visible;
-              }
-            }
-            &-author {
-              color: var(--color-text-dark);
-
-              max-width: 10rem;
-              overflow: hidden;
-              white-space: nowrap;
-            }
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
           }
 
-          &-price {
-            color: var(--color-text-dark);
+          &-author {
+            font-size: 1rem;
           }
         }
       }
     }
-  }
 
-  &-icon {
-    background-color: #000;
+    &-icon {
+      color: var(--color-text-dark);
+      cursor: pointer;
+    }
   }
+}
+
+.display_flex {
+  display: flex;
 }

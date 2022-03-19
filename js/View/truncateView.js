@@ -16,7 +16,9 @@ class TruncateView extends View {
         ".books-section__focused__container__content-description-button"
       );
 
-      //   'offset' is the element height set in css properties, 'scroll' is the maximum height it could muster based on content
+      if (!description) return;
+
+      //   'offset' is the element height set in css properties, 'scroll' is the maximum height it could muster based on content with overflow visible
       if (description.offsetHeight < description.scrollHeight) {
         // Render button
         btn.innerHTML = "Show More";

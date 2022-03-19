@@ -1,10 +1,8 @@
-import { state } from "../model.js";
 import View from "./View.js";
 
 class FocusedView extends View {
   _parentElement = document.querySelector(".books-section__focused");
   _errorMessage = "Something went wrong. Please try again!";
-  _message = "";
 
   addHandlerRender(handler) {
     const bookList = document.querySelector(".books-section__results__list");
@@ -13,10 +11,16 @@ class FocusedView extends View {
       const bookSelect = e.target.closest(".books-section__results__book");
       if (!bookSelect) return;
 
+      // Get HTML dataset
       const bookIndex = +bookSelect.dataset.index;
 
+      // Send index to controller
       handler(bookIndex);
     });
+  }
+
+  clearContainer() {
+    this._parentElement.innerHTML = "";
   }
 
   _generateMarkup() {
@@ -30,8 +34,9 @@ class FocusedView extends View {
     <div class="books-section__focused__container__content">
       <h3 class="books-section__focused__container__content-title">
         ${this._data.title}
-      </h3>
+      <span class="books-section__focused__container__content-pages">(${this._data.pages} pages)</span>
 
+      </h3>
       <div class="books-section__focused__container__content-author">
         by <span>${this._data.author}</span>
       </div>

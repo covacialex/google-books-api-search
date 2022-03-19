@@ -1,6 +1,6 @@
 # Google Books API project
 
-A small project I did as my final presentation for a programming course using the Model-View-Controller architecture in vanilla JavaScript.
+A small project I did as my final presentation for a programming boot camp using the Model-View-Controller architecture in vanilla JavaScript. I'm new to coding and it's my first project. Done with love, coffee and a lot of googling.
 
 ### Features
 

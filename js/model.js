@@ -4,6 +4,7 @@ import { RES_PER_PAGE } from "./config.js";
 
 export const state = {
   book: {},
+  cart: [],
   search: {
     query: "",
     results: [],
@@ -14,8 +15,6 @@ export const state = {
 
 export const searchByTitle = async function (bookName) {
   try {
-    let bookData = [];
-
     // API search
     const data = await getJSON(
       `${API_BOOK_URL}+intitle:${bookName}&langRestrict=en&printType=books&maxResults=40`
@@ -69,12 +68,8 @@ export const searchByTitle = async function (bookName) {
 export const getSearchResultsPage = function (page = state.search.page) {
   state.search.page = page;
 
-  const start = (page - 1) * state.search.resultsPerPage; // (1-1) * resultsPerPage = 0;
-  const end = page * state.search.resultsPerPage; // 1 * resultsPerPage = resultsPerPage;
+  const start = (page - 1) * state.search.resultsPerPage; // (1-1) * 5 = 0;
+  const end = page * state.search.resultsPerPage; // 1 * 5 = 5;
 
-  return state.search.results.slice(start, end); // Slice method to get array of 3 elements
-};
-
-export const focusedBookData = function (bookID) {
-  model.state.search.results.find(({ id }) => id === bookID);
+  return state.search.results.slice(start, end); // Slice method to get an array of resultsPerPage
 };
