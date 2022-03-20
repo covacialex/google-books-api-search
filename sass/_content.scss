@@ -106,11 +106,8 @@
   }
 
   &__focused {
-    // display: none;
-    // width: 100%;
     gap: 3rem;
     border-radius: var(--border-small);
-    // background-color: var(--color-secondary);
 
     &__container {
       display: flex;
@@ -263,6 +260,13 @@
   a:link,
   a:visited {
     text-decoration: none;
+    color: var(--color-primary);
+    font-weight: var(--weight-bold);
+  }
+
+  a:hover,
+  a:active {
+    text-decoration: underline;
     color: var(--color-primary);
     font-weight: var(--weight-bold);
   }

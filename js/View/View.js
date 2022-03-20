@@ -35,6 +35,14 @@ export default class View {
   }
 
   renderError(message = this._errorMessage) {
+    const markup = `
+       <div class="message">
+         <p>${message}</p>
+       </div>
+      `;
+
     console.error(message);
+    this._clear();
+    this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 }

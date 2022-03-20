@@ -2,7 +2,8 @@ import View from "./View.js";
 
 class PaginationView extends View {
   _parentElement = document.querySelector(".pagination");
-  _errorMessage = "Something went wrong with cartView.";
+  _errorMessage =
+    "There was an error while rendering the page buttons. Please refresh the page!";
 
   addHandlerClick(handler) {
     this._parentElement.addEventListener("click", function (e) {

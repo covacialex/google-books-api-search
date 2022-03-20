@@ -2,7 +2,8 @@ import View from "./View.js";
 
 class FocusedView extends View {
   _parentElement = document.querySelector(".books-section__focused");
-  _errorMessage = "Something went wrong with focusedView.";
+  _errorMessage =
+    "Something went wrong while selecting your book. Please try again or refresh the page!";
 
   addHandlerRender(handler) {
     const bookList = document.querySelector(".books-section__results__list");

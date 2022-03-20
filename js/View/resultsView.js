@@ -2,7 +2,8 @@ import View from "./View.js";
 
 class ResultsView extends View {
   _parentElement = document.querySelector(".books-section__results__list");
-  _errorMessage = "Something went wrong with resultsView.";
+  _errorMessage = "Something went wrong with your search. Please try again!";
+  _message = "";
 
   _generateMarkup() {
     // Create new array of each Preview and join them together

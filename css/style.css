@@ -295,6 +295,11 @@
     text-decoration: none;
     color: var(--color-primary);
     font-weight: var(--weight-bold); }
+  .project__intro a:hover,
+  .project__intro a:active {
+    text-decoration: underline;
+    color: var(--color-primary);
+    font-weight: var(--weight-bold); }
 
 * {
   margin: 0;
@@ -349,3 +354,7 @@ body {
   .btn:hover {
     background-color: var(--color-primary);
     color: var(--color-secondary); }
+
+.message {
+  font-size: 2rem;
+  margin: 0 auto; }
