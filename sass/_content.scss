@@ -229,19 +229,6 @@
   }
 }
 
-.project__intro {
-  text-align: center;
-  font-size: 1.4rem;
-  color: var(--color-text-dark);
-
-  a:link,
-  a:visited {
-    text-decoration: none;
-    color: var(--color-primary);
-    font-weight: var(--weight-bold);
-  }
-}
-
 .pagination {
   display: flex;
   justify-content: center;
@@ -267,34 +254,15 @@
   }
 }
 
-// Toggles class from JS in case text overflows
-.line--clamp-5 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-}
-
-.line--clamp-2 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-
-.btn {
-  display: flex;
-  justify-content: flex-end;
-  align-self: flex-end;
-
-  background-color: var(--color-secondary);
-  color: #fff;
-  font-family: var(--family-default);
+.project__intro {
+  text-align: center;
   font-size: 1.4rem;
   color: var(--color-text-dark);
 
-  box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--color-primary);
-  padding: 0.5rem 1rem;
-  border-radius: 0.3rem;
+  a:link,
+  a:visited {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: var(--weight-bold);
+  }
 }

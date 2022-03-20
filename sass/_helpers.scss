@@ -1,0 +1,38 @@
+// Toggles class from JS in case text overflows
+.line--clamp-5 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+// Toggles class from JS in case text overflows
+.line--clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+// Adds display flex to element from JS
+.display_flex {
+  display: flex;
+}
+
+// Main button design
+.btn {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+
+  background-color: var(--color-secondary);
+  color: #fff;
+  font-family: var(--family-default);
+  font-size: 1.4rem;
+  color: var(--color-text-dark);
+
+  box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--color-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+}

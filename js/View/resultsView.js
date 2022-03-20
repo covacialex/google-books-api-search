@@ -2,10 +2,10 @@ import View from "./View.js";
 
 class ResultsView extends View {
   _parentElement = document.querySelector(".books-section__results__list");
-  _errorMessage = "No books found. Please try again!";
-  _message = "";
+  _errorMessage = "Something went wrong with resultsView.";
 
   _generateMarkup() {
+    // Create new array of each Preview and join them together
     return this._data.map(this._generateMarkupPreview).join("");
   }
 

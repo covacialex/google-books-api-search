@@ -2,6 +2,7 @@ import View from "./View.js";
 
 class SearchView extends View {
   _parentElement = document.querySelector(".search__nav");
+  _errorMessage = "Something went wrong with searchView.";
 
   getQuery = function () {
     const query = document.querySelector(".search__nav__bar").value;

@@ -66,13 +66,14 @@ const controlCart = function (data) {
     model.state.cart.push(data);
   }
 
-  console.log(model.state);
+  // console.log(model.state);
 };
 
 const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   focusedView.addHandlerRender(controlFocusedBook);
+
   truncateView.addTruncButton();
 
   cartView.addHandlerRender(controlCart);

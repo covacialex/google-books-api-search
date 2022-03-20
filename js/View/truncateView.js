@@ -2,8 +2,7 @@ import View from "./View.js";
 
 class TruncateView extends View {
   _parentElement = document.querySelector(".books-section__focused");
-  _errorMessage = "Something went wrong with Trunc.";
-  _message = "";
+  _errorMessage = "Something went wrong with TruncVkiew.";
 
   addTruncButton() {
     const bookList = document.querySelector(".books-section__results__list");
