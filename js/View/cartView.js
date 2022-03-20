@@ -36,16 +36,7 @@ class CartView extends View {
     });
   }
 
-  addBoxTruncation(handler) {
-    this._parentElement.addEventListener("mouseover", function (e) {
-      const titleHover = e.target.closest(".user-nav__cart__box-title");
-      if (!titleHover) return;
-
-      console.log(titleHover.offsetHeight, titleHover.scrollHeight);
-    });
-  }
-
-  deleteProduct() {
+  handleRemoveProduct() {
     const cartBox = document.querySelector(".user-nav__cart__box");
 
     // Select closest element on click
@@ -54,6 +45,7 @@ class CartView extends View {
       const removeIcon = e.target.closest(
         ".user-nav__cart__box__container-remove"
       );
+      const cartNumber = document.querySelector(".user-nav__cart-number");
       if (!book) return;
 
       // Select ID from HTML dataset
@@ -68,12 +60,30 @@ class CartView extends View {
 
         // Remove element from state using index found
         state.cart.splice(cartIndex, 1);
+
+        // Decrement DOM number on cart
+        if (state.cart.length > 0) {
+          cartNumber.innerHTML = state.cart.length;
+        } else {
+          cartNumber.classList.remove("display_flex");
+          cartNumber.innerHTML = "";
+          document.querySelector(".user-nav__cart-icon").style.color =
+            "var(--color-secondary)";
+        }
+
+        console.log(state.cart.length);
       };
 
       // Delete element on click from state and DOM
+      if (!removeIcon) return;
       removeIcon.addEventListener("click", removeItems());
     });
   }
+
+  // handleNumberOfProducts() {
+  //   document.querySelector(".user-nav__cart-number").innerHTML =
+  //     state.cart.length;
+  // }
 
   //   Overwrites original _clear() from View.js so it doesn't clear _parentElement.innerHTML when adding to cart
   _clear() {}

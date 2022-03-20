@@ -85,18 +85,21 @@
 
     font-size: 30px;
 
-    color: #fff;
+    color: var(--color-secondary);
+
+    transition: all 2s;
 
     &__box {
       padding: 2rem 1rem;
       background-color: var(--color-secondary);
       color: var(--color-text-dark);
 
-      width: 20rem;
-      min-height: 30rem;
-      max-height: 30rem;
+      width: 22rem;
+      height: 30rem;
       overflow-x: hidden;
       overflow-y: scroll;
+
+      // Relative to __cart;
       position: absolute;
       right: 0;
       top: 110%;
@@ -114,8 +117,12 @@
         // flex-direction: column;
         gap: 1.2rem;
 
+        // opacity: 0;
+        transition: opacity 0.2s;
+
         &-cover {
           width: 3rem;
+          border: 1px solid #000;
         }
 
         &__contents {
@@ -149,6 +156,11 @@
           font-size: 2rem;
           cursor: pointer;
           margin-left: auto;
+          transition: color 0.2s;
+
+          &:active {
+            color: orangered;
+          }
         }
       }
     }
@@ -156,6 +168,27 @@
     &-icon {
       color: var(--color-secondary);
       cursor: pointer;
+      font-size: 3.2rem;
+    }
+
+    &-icon--active {
+      color: orange;
+    }
+
+    &-number {
+      // Relative to __cart
+      position: absolute;
+      top: -0.5rem;
+      left: 2rem;
+
+      padding: 0.1rem 0.5rem;
+      border-radius: 50%;
+
+      background-color: orange;
+      color: var(--color-secondary);
+      font-size: 1.4rem;
+
+      display: none;
     }
   }
 }

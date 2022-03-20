@@ -64,9 +64,19 @@ const controlCart = function (data) {
 
     // Push new cart data into array
     model.state.cart.push(data);
-  }
 
-  // console.log(model.state);
+    // Update DOM cart number (I had to put the code here since it doesn't update in cartView on controller click for some reason)
+    if (model.state.cart.length > 0) {
+      const cartNumber = document.querySelector(".user-nav__cart-number");
+
+      cartNumber.innerHTML = model.state.cart.length;
+
+      cartNumber.classList.add("display_flex");
+      document.querySelector(".user-nav__cart-icon").style.color = "orange";
+    } else {
+      cartNumber.innerHTML = "";
+    }
+  }
 };
 
 const init = function () {
@@ -77,8 +87,7 @@ const init = function () {
   truncateView.addTruncButton();
 
   cartView.addHandlerRender(controlCart);
-  cartView.addBoxTruncation();
-  cartView.deleteProduct();
+  cartView.handleRemoveProduct();
 };
 
 init();

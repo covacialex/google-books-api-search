@@ -57,14 +57,14 @@
     align-items: center;
     position: relative;
     font-size: 30px;
-    color: #fff; }
+    color: var(--color-secondary);
+    transition: all 2s; }
     .user-nav__cart__box {
       padding: 2rem 1rem;
       background-color: var(--color-secondary);
       color: var(--color-text-dark);
-      width: 20rem;
-      min-height: 30rem;
-      max-height: 30rem;
+      width: 22rem;
+      height: 30rem;
       overflow-x: hidden;
       overflow-y: scroll;
       position: absolute;
@@ -77,9 +77,11 @@
       gap: 1rem; }
       .user-nav__cart__box__container {
         display: flex;
-        gap: 1.2rem; }
+        gap: 1.2rem;
+        transition: opacity 0.2s; }
         .user-nav__cart__box__container-cover {
-          width: 3rem; }
+          width: 3rem;
+          border: 1px solid #000; }
         .user-nav__cart__box__container__contents {
           display: flex;
           flex-direction: column; }
@@ -99,10 +101,26 @@
         .user-nav__cart__box__container-remove {
           font-size: 2rem;
           cursor: pointer;
-          margin-left: auto; }
+          margin-left: auto;
+          transition: color 0.2s; }
+          .user-nav__cart__box__container-remove:active {
+            color: orangered; }
     .user-nav__cart-icon {
       color: var(--color-secondary);
-      cursor: pointer; }
+      cursor: pointer;
+      font-size: 3.2rem; }
+    .user-nav__cart-icon--active {
+      color: orange; }
+    .user-nav__cart-number {
+      position: absolute;
+      top: -0.5rem;
+      left: 2rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 50%;
+      background-color: orange;
+      color: var(--color-secondary);
+      font-size: 1.4rem;
+      display: none; }
 
 :root {
   --color-primary: #4bad9c;
@@ -115,11 +133,6 @@
   --border-medium: 0.5rem;
   --family-default: "Vollkorn", serif; }
 
-/* - FONT SIZE SYSTEM (px)
-10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
-
-- Spacing system (px)
-2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128 */
 .content {
   width: 100%; }
 
@@ -153,10 +166,12 @@
       padding: 1rem;
       border-radius: var(--border-small);
       cursor: pointer;
-      transition: transform 0.3s;
+      transition: transform 0.2s;
       overflow: hidden; }
       .books-section__results__book:hover {
         transform: translateY(-0.5rem); }
+      .books-section__results__book:active {
+        transform: translateY(0.5rem); }
       .books-section__results__book__cover {
         height: 24rem;
         display: flex;
@@ -197,10 +212,14 @@
           color: var(--color-secondary);
           border: 1px solid var(--color-primary);
           background-color: var(--color-primary);
-          box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.3);
           padding: 0.5rem 4rem;
           border-radius: var(--border-medium);
-          cursor: pointer; }
+          cursor: pointer;
+          transition: color 0.2s, background-color 0.2s; }
+          .books-section__focused__container__cover-cart:active {
+            background-color: var(--color-secondary);
+            color: var(--color-primary); }
       .books-section__focused__container__content {
         display: flex;
         flex-direction: column;
@@ -230,7 +249,8 @@
           font-weight: var(--weight-normal);
           line-height: 2.2rem; }
           .books-section__focused__container__content-description-button {
-            display: none; }
+            display: none;
+            cursor: pointer; }
 
 .loading {
   display: flex;
@@ -256,11 +276,13 @@
   margin: 1.8rem auto;
   gap: 3rem; }
   .pagination__left {
-    white-space: nowrap; }
+    white-space: nowrap;
+    cursor: pointer; }
     .pagination__left__arrow {
       font-size: 1.8rem; }
   .pagination__right {
-    white-space: nowrap; }
+    white-space: nowrap;
+    cursor: pointer; }
     .pagination__right__arrow {
       font-size: 1.8rem; }
 
@@ -322,4 +344,8 @@ body {
   box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.1);
   border: 1px solid var(--color-primary);
   padding: 0.5rem 1rem;
-  border-radius: 0.3rem; }
+  border-radius: 0.3rem;
+  transition: color 0.2s, background-color 0.2s; }
+  .btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-secondary); }
