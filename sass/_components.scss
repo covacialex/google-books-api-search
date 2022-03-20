@@ -1,13 +1,13 @@
 :root {
   // Colors
 
-  --color-primary: #eeedde;
-  --color-secondary: #e0ddaa;
-  --color-tertiary: #203239;
-  --color-fourth: #141e27;
+  --color-primary: #4bad9c;
+  --color-secondary: #fff;
+  // --color-tertiary: #203239;
+  // --color-fourth: #141e27;
 
-  --color-text: #203239;
-  --color-text-dark: #141e27;
+  --color-text: #999;
+  --color-text-dark: #000;
 
   // Font Size
 
@@ -18,6 +18,7 @@
   // Border Radius
 
   --border-small: 0.2rem;
+  --border-medium: 0.5rem;
 
   // Font Family
   --family-default: "Vollkorn", serif;
@@ -43,7 +44,7 @@ body {
   font-family: var(--family-default);
   font-weight: 400;
 
-  background-color: var(--color-primary);
+  background-color: #ffe4cb;
 }
 
 .main {

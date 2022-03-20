@@ -26,11 +26,14 @@ class FocusedView extends View {
   _generateMarkup() {
     return `
     <div class="books-section__focused__container" data-id="${this._data.id}">
+    <div class="books-section__focused__container__cover">
     <img
       src="${this._data.cover}"
       alt="${this._data.title} book cover"
-      class="books-section__focused__container__cover"
+      class="books-section__focused__container__cover-image"
     />
+    <ion-icon name="cart-outline" class="books-section__focused__container__cover-cart"></ion-icon>
+    </div>
     <div class="books-section__focused__container__content">
       <h3 class="books-section__focused__container__content-title">
         ${this._data.title}

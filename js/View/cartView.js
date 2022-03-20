@@ -17,7 +17,7 @@ class CartView extends View {
 
     bookContainer.addEventListener("click", function (e) {
       e.preventDefault();
-      if (e.target.matches(".books-section__focused__container__cover")) {
+      if (e.target.matches(".books-section__focused__container__cover-cart")) {
         const book = document.querySelector(
           ".books-section__focused__container"
         );
@@ -48,26 +48,34 @@ class CartView extends View {
   deleteProduct() {
     const cartBox = document.querySelector(".user-nav__cart__box");
 
+    // Select closest element on click
     cartBox.addEventListener("click", function (e) {
-      // Select closest element on click
       const book = e.target.closest(".user-nav__cart__box__container");
+      const removeIcon = e.target.closest(
+        ".user-nav__cart__box__container-remove"
+      );
       if (!book) return;
 
       // Select ID from HTML dataset
       const bookID = book.dataset.id;
 
-      // Find index based on ID using destructuring
+      // Find index in state based on ID using destructuring
       const cartIndex = state.cart.findIndex(({ id }) => id === bookID);
 
-      // Delete element on click from state using index
-      state.cart.splice(cartIndex, 1);
+      const removeItems = function () {
+        // Remove DOM element
+        book.remove();
 
-      // Delete element on click from DOM
-      book.remove();
+        // Remove element from state using index found
+        state.cart.splice(cartIndex, 1);
+      };
+
+      // Delete element on click from state and DOM
+      removeIcon.addEventListener("click", removeItems());
     });
   }
 
-  //   Overwrites original _clear() from View.js so it doesn't reset _parentElement.innerHTML when adding to cart
+  //   Overwrites original _clear() from View.js so it doesn't clear _parentElement.innerHTML when adding to cart
   _clear() {}
 
   _generateMarkup() {
@@ -78,6 +86,7 @@ class CartView extends View {
             <h4 class="user-nav__cart__box__container__contents-title">${this._data.title}</h4>
             <p class="user-nav__cart__box__container__contents-author">${this._data.author}</p>
         </div>
+        <ion-icon name="close-outline" class="user-nav__cart__box__container-remove"></ion-icon>
     </li>
     `;
   }

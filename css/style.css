@@ -8,8 +8,9 @@
   gap: 5rem; }
 
 .header {
-  padding: 0 2.4rem;
-  margin-top: 3rem;
+  background-color: var(--color-primary);
+  height: 6rem;
+  padding: 0 3rem;
   display: flex;
   justify-content: flex-start;
   align-items: center; }
@@ -20,19 +21,17 @@
   justify-content: center;
   position: relative; }
   .search__nav__button {
-    background-color: var(--color-secondary);
-    height: 3.8rem;
-    width: 3.8rem;
+    height: 3rem;
+    width: 3rem;
     border: none;
-    border-top: 0.1rem solid var(--color-fourth);
-    border-left: 0.1rem solid var(--color-fourth);
-    border-bottom: 0.1rem solid var(--color-fourth);
+    background-color: var(--color-secondary);
     position: absolute;
-    top: 0rem;
-    left: 0rem; }
+    top: 0.1rem;
+    left: 0.1rem; }
     .search__nav__button__icon {
-      font-size: 2rem;
-      transform: translate(1rem, 0.7rem); }
+      font-size: 1.8rem;
+      transform: translate(1rem, 1rem);
+      color: var(--color-primary); }
   .search__nav__bar {
     font-style: var(--family-default);
     font-weight: var(--weight-bold);
@@ -40,9 +39,6 @@
     width: 30rem;
     height: 3.8rem;
     border: none;
-    border-top: 0.1rem solid var(--color-fourth);
-    border-right: 0.1rem solid var(--color-fourth);
-    border-bottom: 0.1rem solid var(--color-fourth);
     background-color: var(--color-secondary);
     color: var(--color-text-dark); }
     .search__nav__bar::placeholder {
@@ -100,8 +96,12 @@
             -webkit-line-clamp: 2; }
           .user-nav__cart__box__container__contents-author {
             font-size: 1rem; }
+        .user-nav__cart__box__container-remove {
+          font-size: 2rem;
+          cursor: pointer;
+          margin-left: auto; }
     .user-nav__cart-icon {
-      color: var(--color-text-dark);
+      color: var(--color-secondary);
       cursor: pointer; }
 
 .display_flex {
@@ -169,8 +169,8 @@
       text-align: center;
       width: 100%;
       min-height: 36.5rem;
-      box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.1);
-      background-color: var(--color-primary);
+      box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.05);
+      background-color: var(--color-secondary);
       padding: 1rem;
       border-radius: var(--border-small);
       cursor: pointer;
@@ -184,8 +184,7 @@
         flex-direction: column;
         justify-content: flex-end; }
         .books-section__results__book__cover-image {
-          width: 15rem;
-          box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.1); }
+          width: 15rem; }
       .books-section__results__book__content {
         position: relative; }
         .books-section__results__book__content__author {
@@ -199,8 +198,6 @@
           font-weight: var(--weight-bold);
           max-width: 15rem;
           margin-top: 2.4rem; }
-          .books-section__results__book__content__title:hover {
-            overflow: visible; }
   .books-section__focused {
     gap: 3rem;
     border-radius: var(--border-small); }
@@ -208,15 +205,28 @@
       display: flex;
       gap: 3rem; }
       .books-section__focused__container__cover {
-        min-width: 14rem;
-        max-width: 14rem;
-        height: 100%;
-        border: 1px solid #000; }
+        display: flex;
+        flex-direction: column; }
+        .books-section__focused__container__cover-image {
+          min-width: 14rem;
+          max-width: 14rem;
+          border: 1px solid #000; }
+        .books-section__focused__container__cover-cart {
+          font-size: 1.8rem;
+          margin: 0 auto;
+          margin-top: 1rem;
+          color: var(--color-secondary);
+          border: 1px solid var(--color-primary);
+          background-color: var(--color-primary);
+          box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.1);
+          padding: 0.5rem 4rem;
+          border-radius: var(--border-medium);
+          cursor: pointer; }
       .books-section__focused__container__content {
         display: flex;
         flex-direction: column;
         gap: 1.4rem;
-        background-color: var(--color-primary);
+        background-color: var(--color-secondary);
         padding: 2rem;
         flex-grow: 1; }
         .books-section__focused__container__content-title {
@@ -242,13 +252,6 @@
           line-height: 2.2rem; }
           .books-section__focused__container__content-description-button {
             display: none; }
-        .books-section__focused__container__content-price {
-          display: flex;
-          font-size: 1.4rem;
-          margin-bottom: 3rem;
-          background-color: #666;
-          margin-right: auto;
-          cursor: pointer; }
 
 .loading {
   display: flex;
@@ -270,11 +273,11 @@
 .project__intro {
   text-align: center;
   font-size: 1.4rem;
-  color: var(--color-text); }
+  color: var(--color-text-dark); }
   .project__intro a:link,
   .project__intro a:visited {
     text-decoration: none;
-    color: var(--color-text-dark);
+    color: var(--color-primary);
     font-weight: var(--weight-bold); }
 
 .pagination {
@@ -308,32 +311,25 @@
   display: flex;
   justify-content: flex-end;
   align-self: flex-end;
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
   color: #fff;
   font-family: var(--family-default);
   font-size: 1.4rem;
   color: var(--color-text-dark);
   box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--color-fourth);
+  border: 1px solid var(--color-primary);
   padding: 0.5rem 1rem;
   border-radius: 0.3rem; }
 
-.footer {
-  height: 7rem;
-  background-color: violet;
-  max-width: 120rem;
-  margin: 0 auto; }
-
 :root {
-  --color-primary: #eeedde;
-  --color-secondary: #e0ddaa;
-  --color-tertiary: #203239;
-  --color-fourth: #141e27;
-  --color-text: #203239;
-  --color-text-dark: #141e27;
+  --color-primary: #4bad9c;
+  --color-secondary: #fff;
+  --color-text: #999;
+  --color-text-dark: #000;
   --weight-normal: 500;
   --weight-bold: 700;
   --border-small: 0.2rem;
+  --border-medium: 0.5rem;
   --family-default: "Vollkorn", serif; }
 
 * {
@@ -352,7 +348,7 @@ html {
 body {
   font-family: var(--family-default);
   font-weight: 400;
-  background-color: var(--color-primary); }
+  background-color: #ffe4cb; }
 
 .main {
   display: flex; }

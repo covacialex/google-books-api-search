@@ -5,9 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="css/style.css" />
     <title>Document</title>
@@ -15,12 +18,11 @@
   <body>
     <div class="container">
       <header class="header">
-       
         <form class="search__nav" id="search">
           <div class="search__nav__button">
             <ion-icon
-            name="search-sharp"
-            class="search__nav__button__icon"
+              name="search-sharp"
+              class="search__nav__button__icon"
             ></ion-icon>
           </div>
           <input
@@ -28,49 +30,45 @@
             class="search__nav__bar"
             placeholder="Search books..."
           />
-          
         </form>
 
         <div class="user-nav">
-          
           <div class="user-nav__cart">
-            <ion-icon class="user-nav__cart-icon" name="cart-sharp"></ion-icon>
+            <ion-icon
+              class="user-nav__cart-icon"
+              name="cart-outline"
+            ></ion-icon>
             <ul class="user-nav__cart__box"></ul>
-           
           </div>
         </div>
       </header>
 
       <div class="main">
-      
         <div class="content">
-          
           <div class="books-section">
             <div class="books-section__results">
-              
               <ul class="books-section__results__list">
-
-               
-
                 <p class="project__intro">
-                Search for a book using the search bar and click on each result for a small description. <br> <br>
-                A small project I've made as my final presentation for a programming course using Google Books' API. <br> You can see the source code on <a href="https://github.com/covacialex/google-books-api-search" target="_blank">GitHub</a>  </p>
-                
-               </ul>
+                  Search for a book using the search bar and click on each
+                  result for a small description. <br />
+                  <br />
+                  A small project I've made as my final presentation for a
+                  programming course using Google Books' API. <br />
+                  You can see the source code on
+                  <a
+                    href="https://github.com/covacialex/google-books-api-search"
+                    target="_blank"
+                    >GitHub</a
+                  >
+                </p>
+              </ul>
 
-               <div class="pagination button"> 
-              </div>
-
-           </div>
-            <div class="books-section__focused">
-                
-            </div> 
+              <div class="pagination button"></div>
+            </div>
+            <div class="books-section__focused"></div>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="footer">
-      
     </div>
 
     <script

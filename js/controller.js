@@ -56,15 +56,17 @@ const controlCart = function (data) {
   if (model.state.cart.find(({ id }) => id === data.id)) {
     // Increment copies in cart
     model.state.book.copies++;
+
+    return;
   } else {
     // Render book info
     cartView.render(model.state.book);
+
+    // Push new cart data into array
+    model.state.cart.push(data);
   }
 
   console.log(model.state);
-
-  // Push new cart data into array
-  model.state.cart.push(data);
 };
 
 const init = function () {
