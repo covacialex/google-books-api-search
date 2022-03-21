@@ -70,8 +70,6 @@ class CartView extends View {
           document.querySelector(".user-nav__cart-icon").style.color =
             "var(--color-secondary)";
         }
-
-        console.log(state);
       };
 
       // Delete element on click from state and DOM

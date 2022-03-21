@@ -15,11 +15,11 @@ export const state = {
 
 export const searchByTitle = async function (bookName) {
   try {
-    // API search
+    // API search with a partial response of chosen objects
     const data = await getJSON(
-      `${API_BOOK_URL}+intitle:${bookName}&langRestrict=en&printType=books&maxResults=40`
+      `${API_BOOK_URL}+intitle:${bookName}&fields=items(id,volumeInfo/title,volumeInfo/description,volumeInfo/authors,volumeInfo/imageLinks,volumeInfo/pageCount)&langRestrict=en&printType=books&maxResults=40`
     ).then((data) => {
-      // console.log(data); // Enable to see raw data from API
+      console.log(data); // Enable to see raw data from API
 
       const bookArray = data.items
         .map((num, index) => {
@@ -58,6 +58,7 @@ export const searchByTitle = async function (bookName) {
       // Add results to state
       state.search.results = bookArray;
 
+      // console.log(state.search.results); // Enable to see filtered results
       return state.search.results;
     });
   } catch (err) {
