@@ -23,3 +23,8 @@
   // Font Family
   --family-default: "Vollkorn", serif;
 }
+
+// Sass variables
+$bp-large: 75em; // 1200px;
+$bp-medium: 62.5em; // 1000px;
+$bp-small: 31.25em; // 500px;

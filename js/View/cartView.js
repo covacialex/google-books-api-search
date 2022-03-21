@@ -71,7 +71,7 @@ class CartView extends View {
             "var(--color-secondary)";
         }
 
-        console.log(state.cart.length);
+        console.log(state);
       };
 
       // Delete element on click from state and DOM

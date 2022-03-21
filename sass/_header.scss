@@ -1,7 +1,7 @@
 .container {
   background-color: var(--color-secondary);
 
-  max-width: 120rem;
+  max-width: 140rem;
   margin: 0 auto;
   min-height: 100vh;
 
@@ -158,8 +158,12 @@
           margin-left: auto;
           transition: color 0.2s;
 
+          &:hover {
+            color: rgb(199, 65, 16);
+          }
+
           &:active {
-            color: orangered;
+            color: red;
           }
         }
       }

@@ -65,7 +65,7 @@ const controlCart = function (data) {
     // Push new cart data into array
     model.state.cart.push(data);
 
-    // Update DOM cart number (I had to put the code here since it doesn't update in cartView on controller click for some reason)
+    // Update DOM cart number (I had to put the code here since it doesn't update in cartView on controller click)
     if (model.state.cart.length > 0) {
       const cartNumber = document.querySelector(".user-nav__cart-number");
 
