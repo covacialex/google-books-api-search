@@ -3,7 +3,6 @@ import View from "./View.js";
 
 class CartView extends View {
   _parentElement = document.querySelector(".user-nav__cart__box");
-  _errorMessage = "Something went wrong with cartView";
 
   addHandlerRender(handler) {
     const bookContainer = document.querySelector(".books-section__focused");
@@ -17,7 +16,11 @@ class CartView extends View {
 
     bookContainer.addEventListener("click", function (e) {
       e.preventDefault();
-      if (e.target.matches(".books-section__focused__container__cover-cart")) {
+      if (
+        // I don't know why event delegation doesn't work on the cart parent
+        e.target.matches(".books-section__focused__container__cover__cart") ||
+        e.target.matches(".books-section__focused__container__cover__cart-icon")
+      ) {
         const book = document.querySelector(
           ".books-section__focused__container"
         );
@@ -94,7 +97,7 @@ class CartView extends View {
             <h4 class="user-nav__cart__box__container__contents-title">${this._data.title}</h4>
             <p class="user-nav__cart__box__container__contents-author">${this._data.author}</p>
         </div>
-        <ion-icon name="close-outline" class="user-nav__cart__box__container-remove"></ion-icon>
+        <ion-icon name="close-outline" class="user-nav__cart__box__container-remove" tabindex="0"></ion-icon>
     </li>
     `;
   }

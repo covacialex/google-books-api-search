@@ -50,13 +50,10 @@ const controlCart = function (data) {
   model.state.book = data;
 
   // Set copies to 1
-  model.state.book.copies = 1;
+  // model.state.book.copies = 1;
 
   // Check if cart already contains book using destructuring
   if (model.state.cart.find(({ id }) => id === data.id)) {
-    // Increment copies in cart
-    model.state.book.copies++;
-
     return;
   } else {
     // Render book info

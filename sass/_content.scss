@@ -146,7 +146,7 @@
           }
         }
 
-        &-cart {
+        &__cart {
           font-size: 1.8rem;
           margin: 0 auto;
           margin-top: 1rem;
@@ -169,6 +169,10 @@
           @media only screen and (max-width: $bp-small) {
             font-size: 1.6rem;
             padding: 0.4rem 3.6rem;
+          }
+
+          &-icon {
+            transform: translateY(10%);
           }
         }
       }
@@ -206,7 +210,6 @@
         &-author {
           font-size: 1.4rem;
           margin-top: -1.5rem;
-          cursor: pointer;
 
           span {
             font-weight: var(--weight-bold);
@@ -271,6 +274,8 @@
 
   margin: 1.8rem auto;
   gap: 3rem;
+
+  transform: all 2s;
 
   &__left {
     white-space: nowrap;

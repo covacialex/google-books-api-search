@@ -18,6 +18,9 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+
+  border-bottom-left-radius: var(--border-large);
+  border-bottom-right-radius: var(--border-large);
 }
 
 .search__nav {
@@ -28,8 +31,8 @@
   position: relative;
 
   &__button {
-    height: 3rem;
-    width: 3rem;
+    height: 95%;
+    width: 4rem;
 
     border: none;
 
@@ -40,9 +43,14 @@
     left: 0.1rem;
 
     &__icon {
-      font-size: 1.8rem;
-      transform: translate(1rem, 1rem);
+      font-size: 2rem;
+      transform: translateY(0.2rem);
       color: var(--color-primary);
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 
@@ -67,6 +75,12 @@
 
       color: var(--color-text-dark);
     }
+
+    transition: width 0.4s;
+
+    &:focus {
+      width: 35rem;
+    }
   }
 }
 
@@ -86,8 +100,8 @@
     font-size: 30px;
 
     color: var(--color-secondary);
-
-    transition: all 2s;
+    border: none;
+    background: none;
 
     &__box {
       padding: 2rem 1rem;
@@ -112,6 +126,20 @@
       flex-direction: column;
       gap: 1rem;
 
+      &::-webkit-scrollbar {
+        width: 1rem;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: var(--color-secondary);
+      }
+      &::-webkit-scrollbar-thumb {
+        background: var(--color-primary);
+        border-radius: var(--border-large);
+      }
+      &::-webkit-scrollbar-thumb:hover {
+      }
+
       &__container {
         display: flex;
         // flex-direction: column;
@@ -128,6 +156,7 @@
         &__contents {
           display: flex;
           flex-direction: column;
+          text-align: left;
 
           &-title {
             font-size: 1.4rem;

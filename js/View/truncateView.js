@@ -2,7 +2,6 @@ import View from "./View.js";
 
 class TruncateView extends View {
   _parentElement = document.querySelector(".books-section__focused");
-  _errorMessage = "Something went wrong with TruncView.";
 
   addTruncButton() {
     const bookList = document.querySelector(".books-section__results__list");
@@ -14,7 +13,6 @@ class TruncateView extends View {
       const btn = document.querySelector(
         ".books-section__focused__container__content-description-button"
       );
-
       if (!description) return;
 
       //   'offset' is the element height set in css properties, 'scroll' is the maximum height it could muster based on content with overflow visible
@@ -25,8 +23,10 @@ class TruncateView extends View {
 
         // Add button functionality
         btn.addEventListener("click", function () {
+          // Remove css class on click to show overflow
           description.classList.toggle("line--clamp-5");
 
+          // Change button text on click
           toggleText(btn);
         });
       }

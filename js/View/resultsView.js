@@ -3,7 +3,6 @@ import View from "./View.js";
 class ResultsView extends View {
   _parentElement = document.querySelector(".books-section__results__list");
   _errorMessage = "Something went wrong with your search. Please try again!";
-  _message = "";
 
   _generateMarkup() {
     // Create new array of each Preview and join them together
@@ -12,7 +11,7 @@ class ResultsView extends View {
 
   _generateMarkupPreview(book) {
     return `
-      <li class="books-section__results__book"  id=${book.id} data-index="${book.index}"  >
+      <li class="books-section__results__book"  id=${book.id} data-index="${book.index}" tabindex="0">
       <div class="books-section__results__book__cover">
         <img
           src="${book.cover}"

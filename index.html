@@ -13,18 +13,18 @@
     />
 
     <link rel="stylesheet" href="css/style.css" />
-    <title>Document</title>
+    <title>Book store API</title>
   </head>
   <body>
     <div class="container">
       <header class="header">
-        <form class="search__nav" id="search">
-          <div class="search__nav__button">
+        <form class="search__nav" id="search" type="submit">
+          <button class="search__nav__button">
             <ion-icon
               name="search-sharp"
               class="search__nav__button__icon"
             ></ion-icon>
-          </div>
+          </button>
           <input
             type="text"
             class="search__nav__bar"
@@ -33,14 +33,14 @@
         </form>
 
         <div class="user-nav">
-          <div class="user-nav__cart">
+          <button class="user-nav__cart">
             <ion-icon
               class="user-nav__cart-icon"
               name="cart-outline"
             ></ion-icon>
             <span class="user-nav__cart-number"></span>
             <ul class="user-nav__cart__box"></ul>
-          </div>
+          </button>
         </div>
       </header>
 

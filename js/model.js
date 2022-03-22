@@ -3,7 +3,9 @@ import { API_BOOK_URL } from "./config.js";
 import { RES_PER_PAGE } from "./config.js";
 
 export const state = {
-  book: {},
+  book: {
+    copies: 1,
+  },
   cart: [],
   search: {
     query: "",

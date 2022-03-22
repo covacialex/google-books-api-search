@@ -33,7 +33,9 @@ class FocusedView extends View {
       alt="${this._data.title} book cover"
       class="books-section__focused__container__cover-image"
     />
-    <ion-icon name="cart-outline" class="books-section__focused__container__cover-cart"></ion-icon>
+    <button class="books-section__focused__container__cover__cart">
+    <ion-icon name="cart-outline" class="books-section__focused__container__cover__cart-icon"></ion-icon>
+    </button>
     </div>
     <div class="books-section__focused__container__content">
       <h3 class="books-section__focused__container__content-title">
@@ -50,9 +52,7 @@ class FocusedView extends View {
       </p>
       <button class="books-section__focused__container__content-description-button"></button>
       <span class="books-section__focused__container__content-category"
-        ></span
-      >
-      
+        ></span>
     </div>
   </div>
       `;
