@@ -2,7 +2,7 @@
 
 A small project I did as my final presentation for a front-end programming boot camp using the Model-View-Controller architecture in vanilla JavaScript. I'm new to coding and it's my first project. Done with love, coffee and a lot of googling.
 
-####[Live website](https://covacialex.github.io/google-books-api-search/)
+**[Live website](https://covacialex.github.io/google-books-api-search/)**
 
 ### Features
 
