@@ -1,0 +1,136 @@
+.container {
+  background-color: var(--color-secondary);
+
+  max-width: 140rem;
+  margin: 0 auto;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.main {
+  display: flex;
+}
+
+.content {
+  width: 100%;
+}
+
+.books-section {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  max-width: 200rem;
+  padding: 0 2rem;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  grid-column: 1 / -1;
+
+  gap: 2rem;
+  height: 36.5rem;
+
+  &__text {
+    font-size: 1.8rem;
+    white-space: nowrap;
+  }
+
+  &__spinner {
+    animation: spinner 2s linear infinite;
+    height: 3rem;
+    width: 3rem;
+  }
+
+  @keyframes spinner {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 1.8rem auto;
+  gap: 3rem;
+
+  transform: all 2s;
+
+  &__left {
+    white-space: nowrap;
+    cursor: pointer;
+
+    &__arrow {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__right {
+    white-space: nowrap;
+    cursor: pointer;
+
+    &__arrow {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.project__intro {
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--color-text-dark);
+  grid-column: 1 / -1;
+
+  a:link,
+  a:visited {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: var(--weight-bold);
+  }
+
+  a:hover,
+  a:active {
+    text-decoration: underline;
+    color: var(--color-primary);
+    font-weight: var(--weight-bold);
+  }
+}
+
+// Message for errors
+.message {
+  font-size: 2rem;
+  grid-column: 1 / -1;
+}
+
+// Main button design
+.btn {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+
+  background-color: var(--color-secondary);
+  color: #fff;
+  font-family: var(--family-default);
+  font-size: 1.4rem;
+  color: var(--color-text-dark);
+
+  box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--color-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+
+  transition: color 0.2s, background-color 0.2s;
+
+  &:hover {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+  }
+}

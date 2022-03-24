@@ -1,0 +1,108 @@
+.results {
+  max-width: 200rem;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 3rem;
+    margin: 0 auto;
+    position: relative;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+
+  &__book {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    width: 100%;
+    min-height: 36.5rem;
+    max-width: 200rem;
+
+    box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.05);
+    background-color: var(--color-secondary);
+
+    padding: 1rem;
+    border-radius: var(--border-small);
+
+    cursor: pointer;
+    transition: transform 0.2s;
+    overflow: hidden;
+
+    animation: slide-up 0.4s ease;
+
+    &:hover {
+      transform: translateY(-0.5rem);
+    }
+
+    &:active {
+      transform: translateY(0.5rem);
+    }
+
+    // &:hover &__content__title {
+    //   // overflow: visible;
+    //   // transform: translateY(-2.4rem);
+    //   // overflow: visible;
+
+    //   // max-height: 6rem;
+    // }
+
+    &__cover {
+      height: 24rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      &__image {
+        width: 15rem;
+        // box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    &__content {
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: flex-end;
+      position: relative;
+
+      &__author {
+        // text-align: center;
+        font-size: 1.4rem;
+        // margin-top: 6.4rem;
+        margin-bottom: 1.8rem;
+
+        span {
+          color: var(--color-text-dark);
+          font-weight: var(--weight-normal);
+        }
+      }
+
+      &__title {
+        font-size: 1.6rem;
+        font-weight: var(--weight-bold);
+        max-width: 15rem;
+        // height: 4.4rem;
+        margin-top: 2.4rem;
+
+        // position: absolute;
+
+        // &:hover {
+        //   overflow: visible;
+        // }
+      }
+    }
+  }
+}

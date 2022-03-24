@@ -1,0 +1,216 @@
+.header {
+  background-color: var(--color-primary);
+  height: 6rem;
+  padding: 0 3rem;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  border-bottom-left-radius: var(--border-large);
+  border-bottom-right-radius: var(--border-large);
+}
+
+.search-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  &__button {
+    height: 95%;
+    width: 4rem;
+
+    border: none;
+
+    background-color: var(--color-secondary);
+
+    position: absolute;
+    top: 0.1rem;
+    left: 0.1rem;
+
+    &__icon {
+      font-size: 2rem;
+      transform: translateY(0.2rem);
+      color: var(--color-primary);
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__bar {
+    font-style: var(--family-default);
+    font-weight: var(--weight-bold);
+
+    // Padding = place where text starts from
+    padding-left: 6rem;
+
+    width: 30rem;
+    height: 3.8rem;
+
+    border: none;
+
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+
+    &::placeholder {
+      font-style: var(--family-default);
+      font-weight: var(--weight-bold);
+
+      color: var(--color-text-dark);
+    }
+
+    transition: width 0.4s;
+
+    &:focus {
+      width: 35rem;
+    }
+  }
+}
+
+.user-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  margin-left: auto;
+
+  &__cart {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    font-size: 30px;
+
+    color: var(--color-secondary);
+    border: none;
+    background: none;
+
+    &__box {
+      padding: 2rem 1rem;
+      background-color: var(--color-secondary);
+      color: var(--color-text-dark);
+
+      width: 22rem;
+      height: 30rem;
+      overflow-x: hidden;
+      overflow-y: hidden;
+
+      // Relative to __cart;
+      position: absolute;
+      right: 0;
+      top: 110%;
+
+      border: 1px solid #000;
+      z-index: 999;
+
+      animation: slide-cart-down 0.3s ease-out;
+      // Adding display_flex from JS on click
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+
+      // Scrollbar for cart design - visual bug with slide-down animation
+      &::-webkit-scrollbar {
+        width: 1rem;
+      }
+      &::-webkit-scrollbar-track {
+        background: var(--color-secondary);
+      }
+      &::-webkit-scrollbar-thumb {
+        background: var(--color-primary);
+        border-radius: var(--border-large);
+      }
+
+      &__container {
+        display: flex;
+        // flex-direction: column;
+        gap: 1.2rem;
+
+        animation: slide-left 0.2s ease;
+
+        // opacity: 0;
+        transition: opacity 0.2s;
+
+        &__cover {
+          width: 3rem;
+          border: 1px solid #000;
+        }
+
+        &__contents {
+          display: flex;
+          flex-direction: column;
+          text-align: left;
+
+          &__title {
+            font-size: 1.4rem;
+            font-weight: var(--weight-bold);
+            color: var(--color-text-dark);
+
+            max-width: 10rem;
+            // overflow: hidden;
+            // white-space: nowrap;
+
+            display: flex;
+            justify-content: flex-start;
+
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+          }
+
+          &__author {
+            font-size: 1rem;
+          }
+        }
+
+        &__remove {
+          font-size: 2rem;
+          cursor: pointer;
+          margin-left: auto;
+          transition: color 0.2s;
+
+          &:hover {
+            color: rgb(199, 65, 16);
+          }
+
+          &:active {
+            color: red;
+          }
+        }
+      }
+    }
+
+    &__icon {
+      color: var(--color-secondary);
+      cursor: pointer;
+      font-size: 3.2rem;
+    }
+
+    &__icon--active {
+      color: orange;
+    }
+
+    &__number {
+      // Relative to __cart
+      position: absolute;
+      top: -0.5rem;
+      left: 2rem;
+
+      padding: 0.1rem 0.5rem;
+      border-radius: 50%;
+
+      background-color: orange;
+      color: var(--color-secondary);
+      font-size: 1.4rem;
+
+      display: none;
+    }
+  }
+}
