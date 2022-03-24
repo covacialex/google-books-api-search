@@ -5,8 +5,8 @@ class CartView extends View {
   _parentElement = document.querySelector(".user-nav__cart__box");
 
   addHandlerRender(handler) {
-    const bookContainer = document.querySelector(".books-section__focused");
-    const cartIcon = document.querySelector(".user-nav__cart-icon");
+    const bookContainer = document.querySelector(".focused");
+    const cartIcon = document.querySelector(".user-nav__cart__icon");
     const cartBox = document.querySelector(".user-nav__cart__box");
 
     // Show cart on click
@@ -18,12 +18,10 @@ class CartView extends View {
       e.preventDefault();
       if (
         // I don't know why event delegation doesn't work on the cart parent
-        e.target.matches(".books-section__focused__container__cover__cart") ||
-        e.target.matches(".books-section__focused__container__cover__cart-icon")
+        e.target.matches(".focused__container__cover__cart") ||
+        e.target.matches(".focused__container__cover__cart__icon")
       ) {
-        const book = document.querySelector(
-          ".books-section__focused__container"
-        );
+        const book = document.querySelector(".focused__container");
 
         // Get ID from HTML dataset
         const bookID = book.dataset.id;
@@ -46,9 +44,9 @@ class CartView extends View {
     cartBox.addEventListener("click", function (e) {
       const book = e.target.closest(".user-nav__cart__box__container");
       const removeIcon = e.target.closest(
-        ".user-nav__cart__box__container-remove"
+        ".user-nav__cart__box__container__remove"
       );
-      const cartNumber = document.querySelector(".user-nav__cart-number");
+      const cartNumber = document.querySelector(".user-nav__cart__number");
       if (!book) return;
 
       // Select ID from HTML dataset
@@ -70,7 +68,7 @@ class CartView extends View {
         } else {
           cartNumber.classList.remove("display_flex");
           cartNumber.innerHTML = "";
-          document.querySelector(".user-nav__cart-icon").style.color =
+          document.querySelector(".user-nav__cart__icon").style.color =
             "var(--color-secondary)";
         }
       };
@@ -81,23 +79,18 @@ class CartView extends View {
     });
   }
 
-  // handleNumberOfProducts() {
-  //   document.querySelector(".user-nav__cart-number").innerHTML =
-  //     state.cart.length;
-  // }
-
   //   Overwrites original _clear() from View.js so it doesn't clear _parentElement.innerHTML when adding to cart
   _clear() {}
 
   _generateMarkup() {
     return `
-    <li class="user-nav__cart__box__container display_flex" data-id="${this._data.id}">
-        <img src="${this._data.cover}" class="user-nav__cart__box__container-cover" />
+    <li class="user-nav__cart__box__container" data-id="${this._data.id}">
+        <img src="${this._data.cover}" class="user-nav__cart__box__container__cover" />
         <div class="user-nav__cart__box__container__contents">
-            <h4 class="user-nav__cart__box__container__contents-title">${this._data.title}</h4>
-            <p class="user-nav__cart__box__container__contents-author">${this._data.author}</p>
+            <h4 class="user-nav__cart__box__container__contents__title">${this._data.title}</h4>
+            <p class="user-nav__cart__box__container__contents__author">${this._data.author}</p>
         </div>
-        <ion-icon name="close-outline" class="user-nav__cart__box__container-remove" tabindex="0"></ion-icon>
+        <ion-icon name="close-outline" class="user-nav__cart__box__container__remove" tabindex="0"></ion-icon>
     </li>
     `;
   }

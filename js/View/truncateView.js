@@ -1,17 +1,17 @@
 import View from "./View.js";
 
 class TruncateView extends View {
-  _parentElement = document.querySelector(".books-section__focused");
+  _parentElement = document.querySelector(".focused");
 
   addTruncButton() {
-    const bookList = document.querySelector(".books-section__results__list");
+    const bookList = document.querySelector(".results__list");
 
     bookList.addEventListener("click", function () {
       const description = document.querySelector(
-        ".books-section__focused__container__content-description"
+        ".focused__container__content__description"
       );
       const btn = document.querySelector(
-        ".books-section__focused__container__content-description-button"
+        ".focused__container__content__description__button"
       );
       if (!description) return;
 

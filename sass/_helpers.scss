@@ -14,37 +14,50 @@
   -webkit-line-clamp: 2;
 }
 
-// Adds display flex to element from JS
+// Adds display flex to element from JS on click
 .display_flex {
   display: flex;
 }
 
-// Main button design
-.btn {
-  display: flex;
-  justify-content: flex-end;
-  align-self: flex-end;
-
-  background-color: var(--color-secondary);
-  color: #fff;
-  font-family: var(--family-default);
-  font-size: 1.4rem;
-  color: var(--color-text-dark);
-
-  box-shadow: 0.4rem 0.4rem 5rem rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--color-primary);
-  padding: 0.5rem 1rem;
-  border-radius: 0.3rem;
-
-  transition: color 0.2s, background-color 0.2s;
-
-  &:hover {
-    background-color: var(--color-primary);
-    color: var(--color-secondary);
+// Animations
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.message {
-  font-size: 2rem;
-  grid-column: 1 / -1;
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-left {
+  0% {
+    opacity: 0;
+    transform: translateX(2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-cart-down {
+  0% {
+    height: 0rem;
+  }
+  100% {
+    height: 30rem;
+  }
 }

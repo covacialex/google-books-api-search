@@ -64,12 +64,12 @@ const controlCart = function (data) {
 
     // Update DOM cart number (I had to put the code here since it doesn't update in cartView on controller click)
     if (model.state.cart.length > 0) {
-      const cartNumber = document.querySelector(".user-nav__cart-number");
+      const cartNumber = document.querySelector(".user-nav__cart__number");
 
       cartNumber.innerHTML = model.state.cart.length;
 
       cartNumber.classList.add("display_flex");
-      document.querySelector(".user-nav__cart-icon").style.color = "orange";
+      document.querySelector(".user-nav__cart__icon").style.color = "orange";
     } else {
       cartNumber.innerHTML = "";
     }

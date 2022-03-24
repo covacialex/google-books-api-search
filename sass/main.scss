@@ -1,5 +1,9 @@
 @import "variables";
-@import "components";
-@import "header";
-@import "content";
+@import "base";
+@import "content/results";
+@import "content/focused";
+@import "content/header";
+@import "content/layout";
+
+// Helpers has to be imported last, to ensure good order of class toggles from JS (specifically display_flex)
 @import "helpers";

@@ -1,16 +1,19 @@
 import View from "./View.js";
 
 class FocusedView extends View {
-  _parentElement = document.querySelector(".books-section__focused");
+  _parentElement = document.querySelector(".focused");
   _errorMessage =
     "Something went wrong while selecting your book. Please try again or refresh the page!";
 
   addHandlerRender(handler) {
-    const bookList = document.querySelector(".books-section__results__list");
+    const bookList = document.querySelector(".results__list");
+    const bookFocus = document.querySelector(".focused");
 
     bookList.addEventListener("click", function (e) {
-      const bookSelect = e.target.closest(".books-section__results__book");
+      const bookSelect = e.target.closest(".results__book");
       if (!bookSelect) return;
+
+      bookFocus.scrollIntoView({ block: "end" });
 
       // Get HTML dataset
       const bookIndex = +bookSelect.dataset.index;
@@ -26,32 +29,32 @@ class FocusedView extends View {
 
   _generateMarkup() {
     return `
-    <div class="books-section__focused__container" data-id="${this._data.id}">
-    <div class="books-section__focused__container__cover">
+    <div class="focused__container" data-id="${this._data.id}">
+    <div class="focused__container__cover">
     <img
       src="${this._data.cover}"
       alt="${this._data.title} book cover"
-      class="books-section__focused__container__cover-image"
+      class="focused__container__cover__image"
     />
-    <button class="books-section__focused__container__cover__cart">
-    <ion-icon name="cart-outline" class="books-section__focused__container__cover__cart-icon"></ion-icon>
+    <button class="focused__container__cover__cart">
+    <ion-icon name="cart-outline" class="focused__container__cover__cart__icon"></ion-icon>
     </button>
     </div>
-    <div class="books-section__focused__container__content">
-      <h3 class="books-section__focused__container__content-title">
+    <div class="focused__container__content">
+      <h3 class="focused__container__content__title">
         ${this._data.title}
-      <span class="books-section__focused__container__content-pages">(${this._data.pages} pages)</span>
+      <span class="focused__container__content__pages">(${this._data.pages} pages)</span>
 
       </h3>
-      <div class="books-section__focused__container__content-author">
+      <div class="focused__container__content__author">
         by <span>${this._data.author}</span>
       </div>
 
-      <p class="books-section__focused__container__content-description line--clamp-5">
+      <p class="focused__container__content__description line--clamp-5">
         ${this._data.description}
       </p>
-      <button class="books-section__focused__container__content-description-button"></button>
-      <span class="books-section__focused__container__content-category"
+      <button class="focused__container__content__description__button"></button>
+      <span class="focused__container__content__category"
         ></span>
     </div>
   </div>
