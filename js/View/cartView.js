@@ -79,6 +79,31 @@ class CartView extends View {
     });
   }
 
+  handleCartProducts(data) {
+    // Check if cart already contains book using destructuring
+    if (data.cart.find(({ id }) => id === data.book.id)) {
+      return;
+    } else {
+      // Push new cart data into array
+      data.cart.push(data.book);
+
+      // Update DOM cart number
+      incrementCartNumber(data.cart);
+    }
+
+    function incrementCartNumber(cart) {
+      if (cart.length > 0) {
+        const cartNumber = document.querySelector(".user-nav__cart__number");
+        cartNumber.innerHTML = cart.length;
+
+        cartNumber.classList.add("display_flex");
+        document.querySelector(".user-nav__cart__icon").style.color = "orange";
+      } else {
+        cartNumber.innerHTML = "";
+      }
+    }
+  }
+
   //   Overwrites original _clear() from View.js so it doesn't clear _parentElement.innerHTML when adding to cart
   _clear() {}
 

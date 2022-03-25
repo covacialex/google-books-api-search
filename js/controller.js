@@ -49,42 +49,44 @@ const controlCart = function (data) {
   // Add book data from cartView to model.state.book
   model.state.book = data;
 
+  model.state.cart.includes(data) ? null : cartView.render(data);
+
   // Set copies to 1
   // model.state.book.copies = 1;
 
   // Check if cart already contains book using destructuring
-  if (model.state.cart.find(({ id }) => id === data.id)) {
-    return;
-  } else {
-    // Render book info
-    cartView.render(model.state.book);
+  // if (model.state.cart.find(({ id }) => id === data.id)) {
+  //   return;
+  // } else {
+  //   // Render book info
+  //   cartView.render(model.state.book);
 
-    // Push new cart data into array
-    model.state.cart.push(data);
+  //   // Push new cart data into array
+  //   model.state.cart.push(data);
 
-    // Update DOM cart number (I had to put the code here since it doesn't update in cartView on controller click)
-    if (model.state.cart.length > 0) {
-      const cartNumber = document.querySelector(".user-nav__cart__number");
+  //   // Update DOM cart number (I had to put the code here since it doesn't update in cartView on controller click)
+  //   if (model.state.cart.length > 0) {
+  //     const cartNumber = document.querySelector(".user-nav__cart__number");
 
-      cartNumber.innerHTML = model.state.cart.length;
+  //     cartNumber.innerHTML = model.state.cart.length;
 
-      cartNumber.classList.add("display_flex");
-      document.querySelector(".user-nav__cart__icon").style.color = "orange";
-    } else {
-      cartNumber.innerHTML = "";
-    }
-  }
+  //     cartNumber.classList.add("display_flex");
+  //     document.querySelector(".user-nav__cart__icon").style.color = "orange";
+  //   } else {
+  //     cartNumber.innerHTML = "";
+  //   }
+  // }
+
+  cartView.handleCartProducts(model.state);
 };
 
 const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   focusedView.addHandlerRender(controlFocusedBook);
-
   truncateView.addTruncButton();
-
   cartView.addHandlerRender(controlCart);
-  cartView.handleRemoveProduct();
+  cartView.handleRemoveProduct(); // Added in init instead of controlCart otherwise it gets multiple clicks from addEventListeners
 };
 
 init();
