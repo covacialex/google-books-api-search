@@ -15,25 +15,16 @@ class CartView extends View {
     });
 
     bookContainer.addEventListener("click", function (e) {
-      e.preventDefault();
-      if (
-        // I don't know why event delegation doesn't work on the cart parent
-        e.target.matches(".focused__container__cover__cart") ||
-        e.target.matches(".focused__container__cover__cart__icon")
-      ) {
-        const book = document.querySelector(".focused__container");
+      const btnCart = e.target.closest(".focused__container__cover__cart");
+      if (!btnCart) return;
 
-        // Get ID from HTML dataset
-        const bookID = book.dataset.id;
+      const book = document.querySelector(".focused__container");
 
-        // Find object based on ID using destructuring
-        const focusedBookData = state.search.results.find(
-          ({ id }) => id === bookID
-        );
+      // Get Id from HTML dataset
+      const bookId = book.dataset.id;
 
-        // Send object to controller
-        handler(focusedBookData);
-      }
+      // Send Id. to controller
+      handler(bookId);
     });
   }
 
@@ -50,57 +41,44 @@ class CartView extends View {
       if (!book) return;
 
       // Select ID from HTML dataset
-      const bookID = book.dataset.id;
+      const bookID = book.dataset.cartid;
 
       // Find index in state based on ID using destructuring
       const cartIndex = state.cart.findIndex(({ id }) => id === bookID);
 
-      const removeItems = function () {
-        // Remove DOM element
-        book.remove();
+      // Remove DOM element
+      book.remove();
 
-        // Remove element from state using index found
-        state.cart.splice(cartIndex, 1);
+      // Remove element from state using index found
+      state.cart.splice(cartIndex, 1);
 
-        // Decrement DOM number on cart
-        if (state.cart.length > 0) {
-          cartNumber.innerHTML = state.cart.length;
-        } else {
-          cartNumber.classList.remove("display_flex");
-          cartNumber.innerHTML = "";
-          document.querySelector(".user-nav__cart__icon").style.color =
-            "var(--color-secondary)";
-        }
-      };
+      // Decrement DOM number on cart
+      // if (state.cart.length > 0) {
+      //   cartNumber.innerHTML = state.cart.length;
+      // } else {
+      //   cartNumber.classList.remove("display_flex");
+      //   cartNumber.innerHTML = "";
+      //   document.querySelector(".user-nav__cart__icon").style.color =
+      //     "var(--color-secondary)";
+      // }
 
       // Delete element on click from state and DOM
-      if (!removeIcon) return;
-      removeIcon.addEventListener("click", removeItems());
     });
   }
 
-  handleCartProducts(data) {
-    // Check if cart already contains book using destructuring
-    if (data.cart.find(({ id }) => id === data.book.id)) {
-      return;
+  handleCartProducts(cart) {
+    const cartNumber = document.querySelector(".user-nav__cart__number");
+    const cartBox = document.querySelector(".user-nav__cart__box");
+
+    console.log(cart.length);
+    // Update DOM cart number
+    if (cart.length > 0) {
+      cartNumber.innerHTML = cart.length;
+
+      cartNumber.classList.add("display_flex");
+      document.querySelector(".user-nav__cart__icon").style.color = "orange";
     } else {
-      // Push new cart data into array
-      data.cart.push(data.book);
-
-      // Update DOM cart number
-      incrementCartNumber(data.cart);
-    }
-
-    function incrementCartNumber(cart) {
-      if (cart.length > 0) {
-        const cartNumber = document.querySelector(".user-nav__cart__number");
-        cartNumber.innerHTML = cart.length;
-
-        cartNumber.classList.add("display_flex");
-        document.querySelector(".user-nav__cart__icon").style.color = "orange";
-      } else {
-        cartNumber.innerHTML = "";
-      }
+      cartNumber.innerHTML = "";
     }
   }
 
@@ -109,7 +87,7 @@ class CartView extends View {
 
   _generateMarkup() {
     return `
-    <li class="user-nav__cart__box__container" data-id="${this._data.id}">
+    <li class="user-nav__cart__box__container" data-cartid="${this._data.id}">
         <img src="${this._data.cover}" class="user-nav__cart__box__container__cover" />
         <div class="user-nav__cart__box__container__contents">
             <h4 class="user-nav__cart__box__container__contents__title">${this._data.title}</h4>

@@ -76,3 +76,14 @@ export const getSearchResultsPage = function (page = state.search.page) {
 
   return state.search.results.slice(start, end); // Slice method to get an array of resultsPerPage
 };
+
+export const addToCart = function (bookId) {
+  // Find book object in results based on id
+  const focusedBookData = state.search.results.find(({ id }) => id === bookId);
+
+  // Check if cart already contains book using destructuring. If not -> push object into cart array
+  if (!state.cart.find(({ id }) => id === bookId)) {
+    state.cart.push(focusedBookData);
+    state.book = focusedBookData;
+  }
+};

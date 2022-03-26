@@ -9,6 +9,7 @@ export default class View {
     this._data = data;
 
     // Generate markup
+
     const markup = this._generateMarkup();
 
     // Clear parent element

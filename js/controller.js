@@ -45,14 +45,17 @@ const controlFocusedBook = async function (bookIndex) {
   focusedView.render(model.state.search.results[bookIndex]);
 };
 
-const controlCart = function (data) {
-  // // Add book data from cartView handler() to model.state.book
-  model.state.book = data;
+const controlCart = function (bookId) {
+  // Send bookId to model
+  model.addToCart(bookId);
 
-  // Render if cart doesn't contain book
-  model.state.cart.includes(data) ? null : cartView.render(data);
+  // Render book if it's not already rendered
+  const isInCart = document.querySelector(`[data-cartid="${bookId}"]`);
+  isInCart ? null : cartView.render(model.state.book);
 
-  cartView.handleCartProducts(model.state);
+  cartView.handleCartProducts(model.state.cart);
+
+  cartView.handleRemoveProduct();
 };
 
 const init = function () {
@@ -61,7 +64,6 @@ const init = function () {
   focusedView.addHandlerRender(controlFocusedBook);
   truncateView.addTruncButton();
   cartView.addHandlerRender(controlCart);
-  cartView.handleRemoveProduct(); // Added in init instead of controlCart otherwise it gets multiple clicks from addEventListeners
 };
 
 init();
