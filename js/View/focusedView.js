@@ -23,8 +23,6 @@ class FocusedView extends View {
     });
   }
 
-  addCartHandler(handler) {}
-
   clearContainer() {
     this._parentElement.innerHTML = "";
   }

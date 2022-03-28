@@ -1,7 +1,6 @@
-import { state } from "../model.js";
 import View from "./View.js";
 
-class CartView extends View {
+class AddToCartView extends View {
   _parentElement = document.querySelector(".user-nav__cart__box");
 
   addHandlerRender(handler) {
@@ -14,7 +13,9 @@ class CartView extends View {
       cartBox.classList.toggle("display_flex");
     });
 
+    // Send to controller
     bookContainer.addEventListener("click", function (e) {
+      // Select closest element
       const btnCart = e.target.closest(".focused__container__cover__cart");
       if (!btnCart) return;
 
@@ -28,49 +29,9 @@ class CartView extends View {
     });
   }
 
-  handleRemoveProduct() {
-    const cartBox = document.querySelector(".user-nav__cart__box");
-
-    // Select closest element on click
-    cartBox.addEventListener("click", function (e) {
-      const book = e.target.closest(".user-nav__cart__box__container");
-      const removeIcon = e.target.closest(
-        ".user-nav__cart__box__container__remove"
-      );
-      const cartNumber = document.querySelector(".user-nav__cart__number");
-      if (!book) return;
-
-      // Select ID from HTML dataset
-      const bookID = book.dataset.cartid;
-
-      // Find index in state based on ID using destructuring
-      const cartIndex = state.cart.findIndex(({ id }) => id === bookID);
-
-      // Remove DOM element
-      book.remove();
-
-      // Remove element from state using index found
-      state.cart.splice(cartIndex, 1);
-
-      // Decrement DOM number on cart
-      // if (state.cart.length > 0) {
-      //   cartNumber.innerHTML = state.cart.length;
-      // } else {
-      //   cartNumber.classList.remove("display_flex");
-      //   cartNumber.innerHTML = "";
-      //   document.querySelector(".user-nav__cart__icon").style.color =
-      //     "var(--color-secondary)";
-      // }
-
-      // Delete element on click from state and DOM
-    });
-  }
-
-  handleCartProducts(cart) {
+  incrementDOM(cart) {
     const cartNumber = document.querySelector(".user-nav__cart__number");
-    const cartBox = document.querySelector(".user-nav__cart__box");
 
-    console.log(cart.length);
     // Update DOM cart number
     if (cart.length > 0) {
       cartNumber.innerHTML = cart.length;
@@ -99,4 +60,4 @@ class CartView extends View {
   }
 }
 
-export default new CartView();
+export default new AddToCartView();

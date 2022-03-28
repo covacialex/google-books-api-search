@@ -87,3 +87,11 @@ export const addToCart = function (bookId) {
     state.book = focusedBookData;
   }
 };
+
+export const removeFromCart = function (bookId) {
+  // Find object index in cart based on id
+  const cartIndex = state.cart.findIndex(({ id }) => id === bookId);
+
+  // Remove from cart array
+  state.cart.splice(cartIndex, 1);
+};

@@ -1,12 +1,13 @@
 "use strict";
 
 import * as model from "./model.js";
-import cartView from "./View/cartView.js";
+import addToCartView from "./View/addToCartView.js";
 import focusedView from "./View/focusedView.js";
 import paginationView from "./View/paginationView.js";
 import resultsView from "./View/resultsView.js";
 import searchView from "./View/searchView.js";
 import truncateView from "./View/truncateView.js";
+import removeCartView from "./View/removeCartView.js";
 
 const controlSearchResults = async function () {
   try {
@@ -45,17 +46,24 @@ const controlFocusedBook = async function (bookIndex) {
   focusedView.render(model.state.search.results[bookIndex]);
 };
 
-const controlCart = function (bookId) {
+const addToCart = function (bookId) {
   // Send bookId to model
   model.addToCart(bookId);
 
-  // Render book if it's not already rendered
+  // Check if book is present in cart DOM, if not -> render
   const isInCart = document.querySelector(`[data-cartid="${bookId}"]`);
-  isInCart ? null : cartView.render(model.state.book);
+  isInCart ? null : addToCartView.render(model.state.book);
 
-  cartView.handleCartProducts(model.state.cart);
+  // Update DOM number
+  addToCartView.incrementDOM(model.state.cart);
+};
 
-  cartView.handleRemoveProduct();
+const removeFromCart = function (bookId) {
+  // Send bookId to model
+  model.removeFromCart(bookId);
+
+  // Update DOM number
+  removeCartView.decrementDOM(model.state.cart);
 };
 
 const init = function () {
@@ -63,7 +71,7 @@ const init = function () {
   paginationView.addHandlerClick(controlPagination);
   focusedView.addHandlerRender(controlFocusedBook);
   truncateView.addTruncButton();
-  cartView.addHandlerRender(controlCart);
+  addToCartView.addHandlerRender(addToCart);
+  removeCartView.addHandlerRemove(removeFromCart);
 };
-
 init();
